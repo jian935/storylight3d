@@ -206,8 +206,12 @@ async def main():
             part = "%03d" % len(clips)
             mp3 = os.path.join(SEGS, part + ".mp3")
             print("TTS %s: %s" % (part, sent[:18]))
-            await tts_one(sent, mp3)
-            await asyncio.sleep(1.0)
+            # 文案未变时复用已有 mp3：省去重复 TTS，避免触发限流
+            if os.path.exists(mp3) and os.path.getsize(mp3) > 200:
+                print("  reuse cached mp3")
+            else:
+                await tts_one(sent, mp3)
+                await asyncio.sleep(1.0)
             dur = mp3_duration(mp3)
             karaoke = make_karaoke(sent, dur)
             start = cursor
@@ -252,11 +256,14 @@ async def main():
     build_ass(ass_path, all_items)
 
     final = os.path.join(OUT, "StoryLight3D-演示视频.mp4")
+    # subtitles 滤镜不能吃带盘符冒号的 Windows 绝对路径（冒号被当作参数分隔符 → exit -22）
+    # 改为相对路径 + cwd=ROOT，输入/输出仍用绝对路径
+    rel_ass = os.path.relpath(ass_path, ROOT).replace("\\", "/")
     subprocess.run([FF, "-y", "-i", silent_mp4, "-i", audio_mp3,
-                    "-vf", "subtitles='%s'" % ass_path,
+                    "-vf", "subtitles='%s'" % rel_ass,
                     "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
                     "-c:a", "aac", "-b:a", "192k", "-shortest", final],
-                   check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+                   cwd=ROOT, check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     print("FINAL:", final, os.path.getsize(final), "bytes")
 
 

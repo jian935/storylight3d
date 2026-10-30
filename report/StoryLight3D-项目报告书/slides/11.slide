@@ -20,8 +20,8 @@
       <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 12, lineHeight: 1.55 }}>产、研、测、文档、视频一人包揽，工程纪律到位。</Text>
     </Box>
     <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 26, display: 'flex', flexDirection: 'column' }}>
-      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F0ABFC' }}>开源可复现</Text>
-      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 12, lineHeight: 1.55 }}>文档与代码一致，标注错了改标注不改引擎，经得起审查。</Text>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F0ABFC' }}>可复现可审查</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 12, lineHeight: 1.55 }}>源码与文档一致，重建脚本齐全，经得起审查。</Text>
     </Box>
   </Box>
   <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 18, fontSize: 14, color: '#64748B' }}>

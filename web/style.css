@@ -62,6 +62,9 @@ textarea {
 .viewer-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 18px 8px; }
 .viewer-tools { display: flex; align-items: center; gap: 10px; }
 .status { font-size: 12px; color: var(--muted); }
+.progress { width: 140px; height: 4px; background: #1e2a36; border-radius: 2px; overflow: hidden; }
+.progress.hidden { display: none; }
+.progress > div { width: 0%; height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--accent), var(--accent-2)); transition: width .18s ease; }
 .viewer { position: relative; flex: 1; min-height: 320px; background: radial-gradient(circle at 50% 30%, #1a2230, #0b0e13); }
 .viewer canvas { display: block; width: 100% !important; height: 100% !important; }
 .overlay {
@@ -81,3 +84,29 @@ textarea {
 .modal-box label { display: flex; flex-direction: column; gap: 5px; font-size: 12px; color: var(--muted); margin-bottom: 12px; }
 .modal-box input, .modal-box select { background: var(--panel-2); border: 1px solid var(--border); border-radius: 7px; padding: 8px 10px; color: var(--text); font-size: 13px; }
 .modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 6px; }
+
+/* ---------- 移动端 / 窄屏适配 ---------- */
+@media (max-width: 900px) {
+  html { -webkit-text-size-adjust: 100%; }
+  .topbar { flex-wrap: wrap; gap: 8px; padding: 10px 12px; }
+  .brand { flex-wrap: wrap; gap: 6px; }
+  .subtitle { display: none; }
+  .actions { width: 100%; justify-content: flex-end; flex-wrap: wrap; gap: 6px; }
+  button { padding: 7px 10px; font-size: 12px; }
+  #story-picker { padding: 7px 8px; font-size: 12px; max-width: 46vw; border-radius: 8px; background: var(--panel-2); color: var(--text); border: 1px solid var(--border); }
+  .layout { grid-template-columns: 1fr; grid-template-rows: auto 62vh; }
+  .panel { padding: 12px 14px; }
+  textarea { min-height: 132px; font-size: 12px; }
+  .viewer { min-height: 44vh; }
+  .log { height: 84px; font-size: 11px; }
+  .progress { width: 84px; }
+  .panel h2 { font-size: 13px; }
+}
+@media (max-width: 560px) {
+  .title { font-size: 16px; }
+  .layout { grid-template-rows: auto 56vh; }
+  .viewer-head { padding: 10px 12px 6px; }
+  .viewer-head h2 { font-size: 12px; }
+  .viewer-tools { gap: 6px; }
+  .modal-box { padding: 16px; }
+}

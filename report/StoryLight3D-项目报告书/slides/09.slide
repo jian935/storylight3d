@@ -23,8 +23,8 @@
         <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>Edge + swiftshader 自动化产出交付截图，可复现。</Text>
       </Box>
       <Box>
-        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F0ABFC' }}>开源、可复现</Text>
-        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>文档与代码一致，标注错了改标注、不改引擎。</Text>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F0ABFC' }}>可复现、可审查</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>标注错了改标注、不改引擎，脚本齐全可重建。</Text>
       </Box>
     </Box>
   </Box>

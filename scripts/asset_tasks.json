@@ -1,16 +1,28 @@
 {
   "generated": [
-    { "slug": "fairy_sprite", "entity": "小精灵", "type": "character", "prompt": "a small glowing fairy sprite with green wings, fantasy forest creature, cute", "taskid": 4481962, "status": "downloaded", "file": "fairy_sprite.glb" },
-    { "slug": "crystal_treehouse", "entity": "水晶树屋", "type": "scene", "prompt": "a transparent crystal treehouse floating among clouds, inner walls softly glowing, fantasy scene, highly detailed", "taskid": 4482154, "status": "downloaded", "file": "crystal_treehouse.glb" },
-    { "slug": "starlight_key", "entity": "星光钥匙", "type": "prop", "prompt": "an ancient silver key, key teeth formed of flowing starlight, magical glowing prop", "taskid": 4482157, "status": "downloaded", "file": "starlight_key.glb" },
-    { "slug": "mirror_forest", "entity": "镜像森林", "type": "scene", "prompt": "a mysterious forest where trees are made of mirrors reflecting a starry sky, dreamlike scene", "taskid": 4482161, "status": "downloaded", "file": "mirror_forest.glb" },
+    { "slug": "fairy_sprite", "entity": "小精灵", "type": "character", "prompt": "a small glowing fairy sprite with green wings, fantasy forest creature, cute", "taskid": 4481962, "status": "superseded", "file": "fairy_sprite.glb" },
+    { "slug": "crystal_treehouse", "entity": "水晶树屋", "type": "scene", "prompt": "a transparent crystal treehouse floating among clouds, inner walls softly glowing, fantasy scene, highly detailed", "taskid": 4482154, "status": "superseded", "file": "crystal_treehouse.glb" },
+    { "slug": "starlight_key", "entity": "星光钥匙", "type": "prop", "prompt": "an ancient silver key, key teeth formed of flowing starlight, magical glowing prop", "taskid": 4482157, "status": "superseded", "file": "starlight_key.glb" },
+    { "slug": "mirror_forest", "entity": "镜像森林", "type": "scene", "prompt": "a mysterious forest where trees are made of mirrors reflecting a starry sky, dreamlike scene", "taskid": 4482161, "status": "superseded", "file": "mirror_forest.glb" },
     { "slug": "orbital_station", "entity": "轨道车站", "type": "scene", "prompt": "an abandoned rusty space station with broken neon signs, sci-fi scene", "taskid": 4482164, "status": "downloaded", "file": "orbital_station.glb" },
     { "slug": "scavenger_pilot", "entity": "拾荒机师", "type": "character", "prompt": "a young female mechanic pilot in orange repair suit, a hovering toolbox drone behind her, character", "taskid": 4482166, "status": "downloaded", "file": "scavenger_pilot.glb" },
     { "slug": "recon_mech_wolf", "entity": "侦察机甲", "type": "creature", "prompt": "a four-legged mechanical wolf with glowing blue laser eyes, sci-fi creature", "taskid": 4482315, "status": "downloaded", "file": "recon_mech_wolf.glb" },
-    { "slug": "misty_tea_house", "entity": "云雾茶舍", "type": "scene", "prompt": "a wooden tea house beside a waterfall, surrounded by steaming mist, cozy scene", "taskid": 4482316, "status": "downloaded", "file": "misty_tea_house.glb" },
+    { "slug": "misty_tea_house", "entity": "云雾茶舍", "type": "scene", "prompt": "a wooden tea house beside a waterfall, surrounded by steaming mist, cozy scene", "taskid": 4482316, "status": "superseded", "file": "misty_tea_house.glb" },
     { "slug": "celadon_teapot", "entity": "青瓷茶壶", "type": "prop", "prompt": "a celadon teapot with warm crackle-glaze surface, elegant prop", "taskid": 4482324, "status": "downloaded", "file": "celadon_teapot.glb" },
     { "slug": "koi_kite", "entity": "锦鲤纸鸢", "type": "creature", "prompt": "a red kite shaped like a swimming koi fish, traditional chinese creature", "taskid": 4482325, "status": "downloaded", "file": "koi_kite.glb" }
   ],
-  "in_flight": [],
-  "pending_submit": []
+  "in_flight": [
+    { "slug": "crystal_treehouse", "entity": "水晶树屋", "taskid": 4493178, "batch": 1 },
+    { "slug": "mirror_forest", "entity": "镜像森林", "taskid": 4493181, "batch": 1 },
+    { "slug": "misty_tea_house", "entity": "云雾茶舍", "taskid": 4493183, "batch": 1 },
+    { "slug": "fairy_sprite", "entity": "小精灵", "taskid": 4493186, "batch": 1 },
+    { "slug": "starlight_key", "entity": "星光钥匙", "taskid": 4493187, "batch": 1 }
+  ],
+  "pending_submit": [
+    { "slug": "orbital_station", "entity": "轨道车站", "batch": 2 },
+    { "slug": "scavenger_pilot", "entity": "拾荒机师", "batch": 2 },
+    { "slug": "recon_mech_wolf", "entity": "侦察机甲", "batch": 2 },
+    { "slug": "celadon_teapot", "entity": "青瓷茶壶", "batch": 2 },
+    { "slug": "koi_kite", "entity": "锦鲤纸鸢", "batch": 2 }
+  ]
 }

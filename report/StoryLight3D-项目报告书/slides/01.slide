@@ -1,7 +1,7 @@
 <Slide style={{ width: '1280px', height: '720px', background: '#0F172A', display: 'flex', flexDirection: 'row', padding: 0 }}>
-  <Box style={{ width: 700, height: 720, position: 'relative' }}>
-    <Image src="assets/sprite.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-    <Box style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(90deg, rgba(15,23,42,0) 55%, rgba(15,23,42,1) 100%)' }} />
+  <Box style={{ width: 700, height: 720, position: 'relative', background: '#0a0e15' }}>
+    <Image src="assets/cover-sprite.png" style={{ width: '100%', height: '100%', objectFit: 'contain' }} />
+    <Box style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(90deg, rgba(10,14,21,0) 55%, rgba(15,23,42,0.85) 82%, rgba(15,23,42,1) 100%)' }} />
   </Box>
   <Box style={{ flex: 1, padding: 56, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 20 }}>
     <Text style={{ fontSize: 18, color: '#22D3EE', letterSpacing: 2 }}>Aholo 3D 黑客松 · 参赛作品</Text>

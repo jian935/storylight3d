@@ -13,6 +13,28 @@ web/assets/generated/
 
 # 视频构建中间产物
 deliverables/video/segs/
+deliverables/video/silent.mp4
+deliverables/video/narration.mp3
+deliverables/video/subs.ass
+deliverables/video/clips/
+
+# slidep / 报告构建中间产物（含重复图片缓存）
+.slidep/
+**/.slidep/
+**/.cache/
+*.old13.pptx
+
+# 废弃的旧版 13 页报告包（被预览进程锁定，无法删除；交付请用 -final.pptx）
+# 只排除"非 final"的旧包：先忽略所有，再用取反保留 final 版
+report/**/*项目报告书.pptx
+!report/**/*项目报告书-final.pptx
+
+# 调试用一次性截图脚本
+scripts/cdp_test.mjs
+scripts/cdp_reg.mjs
+scripts/diag_box.mjs
+scripts/diag_scene.mjs
+scripts/shoot_one.mjs
 
 # Python
 __pycache__/

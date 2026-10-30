@@ -22,8 +22,8 @@
     <Box style={{ display: 'flex', flexDirection: 'row', gap: 20, alignItems: 'flex-start' }}>
       <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC', width: 56 }}>03</Text>
       <Box>
-        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>GitHub 开源，一键 clone</Text>
-        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>源码、标注、脚本全部公开，复现零门槛。</Text>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>工程可复现</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>源码、任务台账、重建脚本齐备，附一键重建说明。</Text>
       </Box>
     </Box>
     <Box style={{ display: 'flex', flexDirection: 'row', gap: 20, alignItems: 'flex-start' }}>
