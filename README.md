@@ -88,10 +88,10 @@ node scripts/build_manifest.mjs
 
 ## 已知限制与诚实说明
 
-- **源码尚未推送到 GitHub**：本机到 github.com 被网络策略阻断（DNS 污染 + SNI 阻断），
-  `git ls-remote` / `curl https://api.github.com` 均返回 000。仓库已在本地完成提交，
-  待可访问网络后 `git remote add origin ... && git push` 即可。报告书中「已开源/一键 clone」
-  的表述已据此更正为「工程可复现」。
+- **已开源**：源码已推送到 https://github.com/jian935/storylight3d （分支 `main`）。
+  225MB 的 GLB 未纳入版本库，可据 `scripts/asset_tasks.json` 里的 taskid 重建。
+  （注：本机 hosts 曾被 Steam++ / Watt Toolkit 把 github 域名劫持到 127.0.0.1，
+  推送需走本地代理，这与项目本身无关。）
 - **演示视频字幕**：本环境下 edge-tts 不返回 WordBoundary 逐词时间轴事件，
   因此逐字高亮字幕采用「ffmpeg 取真实音频时长 + 按字/词权重均摊」的方式生成，
   是近似对齐而非逐词精确对齐。
