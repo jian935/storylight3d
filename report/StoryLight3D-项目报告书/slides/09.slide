@@ -1,0 +1,35 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', padding: 60, display: 'flex', flexDirection: 'column' }}>
+  <Box style={{ marginBottom: 24 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>工程实现要点</Text>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF', marginTop: 8 }}>纯前端，零后端</Text>
+    <Box style={{ width: '100%', height: 1, background: 'rgba(79,70,229,0.5)', marginTop: 16 }} />
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'row', gap: 32 }}>
+    <Box style={{ width: 360, background: '#4F46E5', borderRadius: 12, padding: 32, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+      <Text style={{ fontSize: 26, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.4 }}>稳定优先于花哨</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 16, lineHeight: 1.6 }}>不堆微服务、不接数据库，静态托管即可运行，Demo 不会因后端故障崩。</Text>
+    </Box>
+    <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 18 }}>
+      <Box style={{ paddingBottom: 16, borderBottom: '1px solid rgba(148,163,184,0.25)' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F0ABFC' }}>本地化 three.js</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>vendor 化依赖，彻底去除 CDN 依赖，离线也能跑。</Text>
+      </Box>
+      <Box style={{ paddingBottom: 16, borderBottom: '1px solid rgba(148,163,184,0.25)' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F0ABFC' }}>三档资产加载</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>manifest 真实 GLB → 实时调用 → 占位几何体，逐级兜底。</Text>
+      </Box>
+      <Box style={{ paddingBottom: 16, borderBottom: '1px solid rgba(148,163,184,0.25)' }}>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F0ABFC' }}>CDP 截图流水线</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>Edge + swiftshader 自动化产出交付截图，可复现。</Text>
+      </Box>
+      <Box>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#F0ABFC' }}>开源、可复现</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>文档与代码一致，标注错了改标注、不改引擎。</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 18, fontSize: 14, color: '#64748B' }}>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>09 / 12</Text>
+  </Box>
+</Slide>

@@ -1,0 +1,12 @@
+{
+  "name": "storylight3d",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "StoryLight3D · 故事即 3D 场景 · Powered by Aholo Lux3D",
+  "scripts": {
+    "gen": "node scripts/generate_assets.mjs",
+    "gen:dry": "node scripts/generate_assets.mjs --dry-run",
+    "serve": "cd web && python -m http.server 8080"
+  }
+}

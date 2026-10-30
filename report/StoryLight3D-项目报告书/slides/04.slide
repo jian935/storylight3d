@@ -1,0 +1,39 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', padding: 60, display: 'flex', flexDirection: 'column' }}>
+  <Box style={{ marginBottom: 24 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>端到端流程</Text>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF', marginTop: 8 }}>从一句话到可交互场景</Text>
+    <Box style={{ width: '100%', height: 1, background: 'rgba(79,70,229,0.5)', marginTop: 16 }} />
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'row', alignItems: 'stretch', gap: 12 }}>
+    <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 24, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC' }}>01</Text>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', marginTop: 10 }}>写故事</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 8, lineHeight: 1.5 }}>在编辑器里用 [[名称:类型:描述]] 标记 3D 实体。</Text>
+    </Box>
+    <Box style={{ alignSelf: 'center', fontSize: 30, color: '#22D3EE', fontWeight: 'bold' }}>→</Box>
+    <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 24, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC' }}>02</Text>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', marginTop: 10 }}>解析标记</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 8, lineHeight: 1.5 }}>提取名称 / 类型 / 描述，生成资产清单与 manifest。</Text>
+    </Box>
+    <Box style={{ alignSelf: 'center', fontSize: 30, color: '#22D3EE', fontWeight: 'bold' }}>→</Box>
+    <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 24, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC' }}>03</Text>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', marginTop: 10 }}>Lux3D 文生 3D</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 8, lineHeight: 1.5 }}>G1-Turbo 生成带 PBR 的 GLB，标准可加载。</Text>
+    </Box>
+    <Box style={{ alignSelf: 'center', fontSize: 30, color: '#22D3EE', fontWeight: 'bold' }}>→</Box>
+    <Box style={{ flex: 1, background: 'rgba(240,171,252,0.12)', border: '1px solid rgba(240,171,252,0.4)', borderRadius: 12, padding: 24, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC' }}>04</Text>
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#FFFFFF', marginTop: 10 }}>Three.js 场景</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 8, lineHeight: 1.5 }}>加载、布光、OrbitControls 交互，故事可漫游。</Text>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 20, padding: 14, background: 'rgba(34,211,238,0.12)', borderRadius: 8 }}>
+    <Text style={{ fontSize: 17, color: '#E2E8F0' }}>全程纯前端：无后端、无数据库，静态托管即可运行，稳定优先。</Text>
+  </Box>
+  <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 14, fontSize: 14, color: '#64748B' }}>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>04 / 12</Text>
+  </Box>
+</Slide>

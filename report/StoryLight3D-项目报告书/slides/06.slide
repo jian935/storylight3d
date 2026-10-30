@@ -1,0 +1,31 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', padding: 60, display: 'flex', flexDirection: 'column' }}>
+  <Box style={{ marginBottom: 24 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>精品 Demo</Text>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF', marginTop: 8 }}>三个故事，三个世界</Text>
+    <Box style={{ width: '100%', height: 1, background: 'rgba(79,70,229,0.5)', marginTop: 16 }} />
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'row', gap: 22, alignItems: 'flex-start' }}>
+    <Box style={{ flex: 1 }}>
+      <Image src="assets/sprite.png" style={{ width: '100%', height: 230, objectFit: 'cover', borderRadius: 10 }} />
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F0ABFC', marginTop: 14 }}>精灵森林</Text>
+      <Text style={{ fontSize: 16, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>小精灵 · 水晶树屋 · 星光钥匙 · 镜像森林</Text>
+    </Box>
+    <Box style={{ flex: 1 }}>
+      <Image src="assets/mech.png" style={{ width: '100%', height: 230, objectFit: 'cover', borderRadius: 10 }} />
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F0ABFC', marginTop: 14 }}>轨道机甲</Text>
+      <Text style={{ fontSize: 16, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>轨道车站 · 拾荒机师 · 侦察机甲</Text>
+    </Box>
+    <Box style={{ flex: 1 }}>
+      <Image src="assets/tea.png" style={{ width: '100%', height: 230, objectFit: 'cover', borderRadius: 10 }} />
+      <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F0ABFC', marginTop: 14 }}>云雾茶舍</Text>
+      <Text style={{ fontSize: 16, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>茶舍 · 青瓷茶壶 · 锦鲤纸鸢</Text>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 18, padding: 14, background: 'rgba(34,211,238,0.12)', borderRadius: 8 }}>
+    <Text style={{ fontSize: 17, color: '#E2E8F0' }}>每个故事都跑在同一套框架上：真实 Lux3D 资产 + Three.js 交互，一键切换。</Text>
+  </Box>
+  <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 14, fontSize: 14, color: '#64748B' }}>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>06 / 12</Text>
+  </Box>
+</Slide>

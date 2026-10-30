@@ -1,0 +1,31 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', padding: 60, display: 'flex', flexDirection: 'column' }}>
+  <Box style={{ marginBottom: 24 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>一句话定位</Text>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF', marginTop: 8 }}>StoryLight3D 是什么</Text>
+    <Box style={{ width: '100%', height: 1, background: 'rgba(79,70,229,0.5)', marginTop: 16 }} />
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', gap: 24 }}>
+    <Text style={{ fontSize: 20, color: '#E2E8F0', lineHeight: 1.6 }}>一个「写作即造物」的故事编辑器：在文本里用 <span style={{ color: '#F0ABFC', fontWeight: 'bold' }}>[[名称:类型:描述]]</span> 标记 3D 实体，系统自动调用 Lux3D 文生 3D，再用 Three.js 渲染成可旋转、可漫游的交互场景。你只管写，世界自己长出来。</Text>
+    <Box style={{ flex: 1, display: 'flex', flexDirection: 'row', gap: 20 }}>
+      <Box style={{ flex: 1, borderTop: '3px solid #22D3EE', paddingTop: 16 }}>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F0ABFC' }}>标记即建模</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 8, lineHeight: 1.5 }}>用 [[名称:类型:描述]] 在文字里直接标记实体，无需打开任何建模软件。</Text>
+      </Box>
+      <Box style={{ flex: 1, borderTop: '3px solid #22D3EE', paddingTop: 16 }}>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F0ABFC' }}>文生 3D 自动化</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 8, lineHeight: 1.5 }}>解析标记后自动提交 Lux3D，生成带 PBR 的真实 GLB，无需人工贴图。</Text>
+      </Box>
+      <Box style={{ flex: 1, borderTop: '3px solid #22D3EE', paddingTop: 16 }}>
+        <Text style={{ fontSize: 22, fontWeight: 'bold', color: '#F0ABFC' }}>即时可交互</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 8, lineHeight: 1.5 }}>Three.js 加载即出场景，旋转、缩放、漫游，故事当场可走进去。</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ marginTop: 18, padding: 14, background: 'rgba(34,211,238,0.12)', borderRadius: 8 }}>
+    <Text style={{ fontSize: 17, color: '#E2E8F0' }}>你负责写，世界自己长出来 —— 这是 StoryLight3D 唯一的承诺。</Text>
+  </Box>
+  <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 14, fontSize: 14, color: '#64748B' }}>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>03 / 12</Text>
+  </Box>
+</Slide>

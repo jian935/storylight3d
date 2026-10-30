@@ -1,0 +1,19 @@
+# 密钥与本地配置（绝不进版本库 / Pages）
+.local/
+node_modules/
+*.log
+.DS_Store
+dist/
+
+# 生成的 3D 资产（由本机脚本产出，体积大、可重建）
+web/assets/generated/
+
+# WorkBuddy 内部数据
+.workbuddy/
+
+# 视频构建中间产物
+deliverables/video/segs/
+
+# Python
+__pycache__/
+*.pyc

@@ -1,0 +1,31 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', padding: 60, display: 'flex', flexDirection: 'column' }}>
+  <Box style={{ marginBottom: 24 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>为什么能拿加分</Text>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF', marginTop: 8 }}>四个实打实的支点</Text>
+    <Box style={{ width: '100%', height: 1, background: 'rgba(79,70,229,0.5)', marginTop: 16 }} />
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'row', gap: 22 }}>
+    <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 26, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F0ABFC' }}>真实资产</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 12, lineHeight: 1.55 }}>10 个 Lux3D 真实 GLB，不带占位几何体滥竽充数，可信度拉满。</Text>
+    </Box>
+    <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 26, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F0ABFC' }}>端到端闭环</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 12, lineHeight: 1.55 }}>写标记 → 文生 3D → 交互场景，完整链路跑通，不是概念图。</Text>
+    </Box>
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'row', gap: 22, marginTop: 22 }}>
+    <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 26, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F0ABFC' }}>单人完整交付</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 12, lineHeight: 1.55 }}>产、研、测、文档、视频一人包揽，工程纪律到位。</Text>
+    </Box>
+    <Box style={{ flex: 1, background: 'rgba(79,70,229,0.12)', border: '1px solid rgba(79,70,229,0.4)', borderRadius: 12, padding: 26, display: 'flex', flexDirection: 'column' }}>
+      <Text style={{ fontSize: 24, fontWeight: 'bold', color: '#F0ABFC' }}>开源可复现</Text>
+      <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 12, lineHeight: 1.55 }}>文档与代码一致，标注错了改标注不改引擎，经得起审查。</Text>
+    </Box>
+  </Box>
+  <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 18, fontSize: 14, color: '#64748B' }}>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>11 / 12</Text>
+  </Box>
+</Slide>

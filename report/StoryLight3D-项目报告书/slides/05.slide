@@ -1,0 +1,35 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', padding: 60, display: 'flex', flexDirection: 'column' }}>
+  <Box style={{ marginBottom: 24 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>为什么是 Lux3D</Text>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF', marginTop: 8 }}>高保真文生 3D 的引擎底座</Text>
+    <Box style={{ width: '100%', height: 1, background: 'rgba(79,70,229,0.5)', marginTop: 16 }} />
+  </Box>
+  <Box style={{ display: 'flex', flexDirection: 'row', gap: 16, marginBottom: 24 }}>
+    <Box style={{ flex: 1, borderLeft: '3px solid #22D3EE', paddingLeft: 16 }}>
+      <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#F0ABFC' }}>~5<Text style={{ fontSize: 18, color: '#94A3B8' }}> 分钟/个</Text></Text>
+      <Text style={{ fontSize: 15, color: '#E2E8F0', marginTop: 6 }}>G1-Turbo 单资产生成</Text>
+    </Box>
+    <Box style={{ flex: 1, borderLeft: '3px solid #22D3EE', paddingLeft: 16 }}>
+      <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#F0ABFC' }}>10<Text style={{ fontSize: 18, color: '#94A3B8' }}> 个</Text></Text>
+      <Text style={{ fontSize: 15, color: '#E2E8F0', marginTop: 6 }}>已生成真实 GLB</Text>
+    </Box>
+    <Box style={{ flex: 1, borderLeft: '3px solid #22D3EE', paddingLeft: 16 }}>
+      <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#F0ABFC' }}>100<Text style={{ fontSize: 18, color: '#94A3B8' }}>%</Text></Text>
+      <Text style={{ fontSize: 15, color: '#E2E8F0', marginTop: 6 }}>PBR 材质覆盖</Text>
+    </Box>
+    <Box style={{ flex: 1, borderLeft: '3px solid #22D3EE', paddingLeft: 16 }}>
+      <Text style={{ fontSize: 44, fontWeight: 'bold', color: '#F0ABFC' }}>1<Text style={{ fontSize: 18, color: '#94A3B8' }}> 套 API</Text></Text>
+      <Text style={{ fontSize: 15, color: '#E2E8F0', marginTop: 6 }}>经 MCP 通道授权</Text>
+    </Box>
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+    <Text style={{ fontSize: 19, color: '#E2E8F0', lineHeight: 1.65 }}>Lux3D 提供高保真文生 3D：mesh + PBR 贴图一次到位，输出标准 GLB，可直接被 Three.js 加载。通过 API key（经 MCP 通道授权）稳定调用，单会话并发上限 5 个任务 —— 十个实体分批生成，全程可追踪。</Text>
+  </Box>
+  <Box style={{ marginTop: 16, padding: 14, background: 'rgba(34,211,238,0.12)', borderRadius: 8 }}>
+    <Text style={{ fontSize: 17, color: '#E2E8F0' }}>真实资产，而非占位几何体 —— 这是 Demo 可信度的根基。</Text>
+  </Box>
+  <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 14, fontSize: 14, color: '#64748B' }}>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>05 / 12</Text>
+  </Box>
+</Slide>

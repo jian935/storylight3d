@@ -1,0 +1,13 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', display: 'flex', flexDirection: 'row', padding: 0 }}>
+  <Box style={{ flex: 1, padding: 64, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 22 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 56, fontWeight: 'bold', color: '#FFFFFF', lineHeight: 1.2 }}>写作即造物，<br />故事即世界</Text>
+    <Box style={{ width: 64, height: 4, background: '#F0ABFC', borderRadius: 2 }} />
+    <Text style={{ fontSize: 22, color: '#E2E8F0', lineHeight: 1.5 }}>Thanks · #Aholo黑客松</Text>
+    <Text style={{ fontSize: 16, color: '#94A3B8', marginTop: 8, lineHeight: 1.6 }}>GitHub: @jian935 · Demo: WorkBuddy 站点发布页</Text>
+  </Box>
+  <Box style={{ width: 520, height: 720, position: 'relative' }}>
+    <Image src="assets/tea.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+    <Box style={{ position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, background: 'linear-gradient(270deg, rgba(15,23,42,0) 55%, rgba(15,23,42,1) 100%)' }} />
+  </Box>
+</Slide>

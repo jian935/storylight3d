@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>StoryLight3D · 故事即 3D 场景</title>
+  <link rel="stylesheet" href="./style.css" />
+  <!-- Three.js 本地化（vendor），不依赖任何外部 CDN，评委机断网也能跑 -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three.module.js",
+      "three/addons/": "./vendor/addons/"
+    }
+  }
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="logo">◆</span>
+      <span class="title">StoryLight3D</span>
+      <span class="subtitle">故事即 3D 场景 · Powered by Aholo Lux3D</span>
+    </div>
+    <div class="actions">
+      <button id="btn-config" class="ghost">⚙ 配置 Lux3D</button>
+      <select id="story-picker" class="ghost" title="选择示例故事">
+        <option value="sprite">示例 · 精灵森林</option>
+        <option value="mech">示例 · 轨道机甲</option>
+        <option value="tea">示例 · 云雾茶舍</option>
+      </select>
+      <button id="btn-generate" class="primary">▶ 生成 3D 场景</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="panel left">
+      <h2>① 写故事（用 <code>[[名称:类型:描述]]</code> 标记 3D 角色/道具/场景）</h2>
+      <textarea id="story" spellcheck="false" placeholder="例如：从前有只[[小精灵:character:可爱的森林精灵，绿色半透明翅膀，手持发光星星]]，住在一座[[水晶树屋:scene:悬浮在云端的透明水晶树屋，内壁发光]]里……"></textarea>
+      <div class="hint">
+        类型支持：<b>character</b>（角色）· <b>creature</b>（生物）· <b>prop</b>（道具）· <b>scene</b>（场景/建筑）。
+        不写类型默认按 prop 处理。
+      </div>
+      <h3>解析出的实体</h3>
+      <ul id="entity-list" class="entity-list"><li class="empty">尚未生成</li></ul>
+    </section>
+
+    <section class="panel right">
+      <div class="viewer-head">
+        <h2>② 交互式 3D 预览</h2>
+        <div class="viewer-tools">
+          <button id="btn-reset" class="ghost sm">重置视角</button>
+          <span id="status" class="status">就绪</span>
+        </div>
+      </div>
+      <div id="viewer" class="viewer">
+        <div id="overlay" class="overlay">点击「生成 3D 场景」开始</div>
+      </div>
+      <div id="log" class="log"></div>
+    </section>
+  </main>
+
+  <!-- 配置弹窗 -->
+  <div id="config-modal" class="modal hidden">
+    <div class="modal-box">
+      <h3>配置 Aholo Lux3D（可选）</h3>
+      <p class="muted">留空则使用占位模型演示完整流程。接入后每个 <code>[[标签]]</code> 会调用 Lux3D 真实生成 3D 资产。</p>
+      <label>API Base URL<input id="cfg-base" type="text" placeholder="https://api.aholo3d.cn" /></label>
+      <label>API Key<input id="cfg-key" type="password" placeholder="你的 Aholo API Key" /></label>
+      <label>生成模式
+        <select id="cfg-mode">
+          <option value="standard">Standard（高质量 ~5min）</option>
+          <option value="turbo">Turbo（极速 ~20s 预览）</option>
+        </select>
+      </label>
+      <div class="modal-actions">
+        <button id="cfg-cancel" class="ghost">取消</button>
+        <button id="cfg-save" class="primary">保存</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

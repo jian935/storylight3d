@@ -1,0 +1,41 @@
+<Slide style={{ width: '1280px', height: '720px', background: '#0F172A', padding: 60, display: 'flex', flexDirection: 'column' }}>
+  <Box style={{ marginBottom: 24 }}>
+    <Text style={{ fontSize: 16, color: '#22D3EE', letterSpacing: 2 }}>部署与发布</Text>
+    <Text style={{ fontSize: 34, fontWeight: 'bold', color: '#FFFFFF', marginTop: 8 }}>一键部署，开箱即看</Text>
+    <Box style={{ width: '100%', height: 1, background: 'rgba(79,70,229,0.5)', marginTop: 16 }} />
+  </Box>
+  <Box style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'center', gap: 20 }}>
+    <Box style={{ display: 'flex', flexDirection: 'row', gap: 20, alignItems: 'flex-start' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC', width: 56 }}>01</Text>
+      <Box>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>WorkBuddy 站点发布在线 Demo</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>一次发布即生成可分享链接，评委与观众直接打开体验。</Text>
+      </Box>
+    </Box>
+    <Box style={{ display: 'flex', flexDirection: 'row', gap: 20, alignItems: 'flex-start' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC', width: 56 }}>02</Text>
+      <Box>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>静态资源自托管</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>GLB 与 three.js 一并随站托管，无外部依赖、无冷启动。</Text>
+      </Box>
+    </Box>
+    <Box style={{ display: 'flex', flexDirection: 'row', gap: 20, alignItems: 'flex-start' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC', width: 56 }}>03</Text>
+      <Box>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>GitHub 开源，一键 clone</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>源码、标注、脚本全部公开，复现零门槛。</Text>
+      </Box>
+    </Box>
+    <Box style={{ display: 'flex', flexDirection: 'row', gap: 20, alignItems: 'flex-start' }}>
+      <Text style={{ fontSize: 28, fontWeight: 'bold', color: '#F0ABFC', width: 56 }}>04</Text>
+      <Box>
+        <Text style={{ fontSize: 21, fontWeight: 'bold', color: '#FFFFFF' }}>零构建即可访问</Text>
+        <Text style={{ fontSize: 17, color: '#E2E8F0', marginTop: 6, lineHeight: 1.5 }}>纯静态站，部署即上线，不需要编译流水线。</Text>
+      </Box>
+    </Box>
+  </Box>
+  <Box style={{ display: 'flex', justifyContent: 'space-between', marginTop: 18, fontSize: 14, color: '#64748B' }}>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>StoryLight3D · Aholo 3D 黑客松</Text>
+    <Text style={{ fontSize: 14, color: '#64748B' }}>10 / 12</Text>
+  </Box>
+</Slide>
