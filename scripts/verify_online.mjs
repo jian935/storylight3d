@@ -72,10 +72,11 @@ function onMessage(ws, data) {
         expression: `(() => {
           const lis = [...document.querySelectorAll('#entity-list li')];
           const states = lis.map(li => (li.querySelector('.tag-state')||{}).textContent || '');
-          return JSON.stringify({ n: lis.length, states, done: lis.length > 0 && !states.some(s => s.includes('生成中')) });
+          return JSON.stringify({ n: lis.length, states, done: lis.length > 0 && states.every(s => s.includes('✓') || s.includes('Lux3D') || s.includes('占位')) });
         })()`, returnByValue: true,
       });
-      const v = JSON.parse(r.result.value);
+      // CDP Runtime.evaluate(returnByValue) 真实返回路径是 r.result.result.value
+      const v = JSON.parse(r.result.result.value);
       if (v.n) {
         console.log(`t=${(t + 1) * 2.5}s 实体 ${v.n} 个: ${v.states.join(' | ')}`);
         if (v.done) { ready = true; break; }
@@ -90,7 +91,7 @@ function onMessage(ws, data) {
       canvas: !!document.querySelector('#viewer canvas') })`, returnByValue: true,
   });
   console.log('\n=== 页面诊断 ===');
-  console.log(diag.result?.value);
+  console.log(diag.result?.result?.value ?? diag.result?.value);
 
   const shot = await rpc(ws, 'Page.captureScreenshot', { format: 'png', fromSurface: true });
   if (shot?.result?.data) {
