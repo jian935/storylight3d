@@ -44,6 +44,3 @@ deliverables/video/loop/frames/
 deliverables/video/loop/seq/
 deliverables/video/loop/audio/
 deliverables/video/loop/silent.mp4
-
-# 对外交付副本（本地保留，不入库避免重复占体积）
-交付/
