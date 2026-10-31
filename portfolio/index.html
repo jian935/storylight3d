@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="theme-color" content="#0a0e15" />
+<title>StoryLight3D · 写作即造物</title>
+<style>
+  :root{
+    --bg:#0a0e15; --bg2:#0e1520; --card:#121a28; --line:#1e2a3c;
+    --ink:#e9f0fa; --muted:#8ea0b6; --brand:#22d3ee; --brand2:#6366f1;
+    --max:1000px;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:var(--brand);text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 22px}
+  /* nav */
+  nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:rgba(10,14,21,.78);border-bottom:1px solid var(--line)}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;height:58px}
+  .brand{font-weight:800;letter-spacing:.5px}
+  .brand span{color:var(--brand)}
+  .navlinks{display:flex;gap:18px;font-size:14px}
+  .navlinks a{color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  /* hero */
+  header{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+  header:before{content:"";position:absolute;inset:-40% -10% auto -10%;height:70%;background:radial-gradient(closest-side,rgba(99,102,241,.22),transparent 70%),radial-gradient(closest-side,rgba(34,211,238,.16),transparent 70%);filter:blur(10px)}
+  .hero{position:relative;padding:64px 0 40px;text-align:center}
+  .kicker{display:inline-block;font-size:12px;letter-spacing:2px;color:var(--brand);border:1px solid rgba(34,211,238,.35);border-radius:999px;padding:5px 14px;margin-bottom:18px}
+  h1{font-size:56px;line-height:1.12;margin:0 0 14px;letter-spacing:-1px}
+  h1 em{font-style:normal;background:linear-gradient(90deg,#22d3ee,#818cf8);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{color:var(--muted);font-size:17px;max-width:660px;margin:0 auto 26px}
+  .meta{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;font-size:12.5px;color:var(--muted);margin-bottom:30px}
+  .meta span{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:4px 12px}
+  .video{position:relative;max-width:var(--max);margin:0 auto;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+  .video video{display:block;width:100%;height:auto;background:#000}
+  /* sections */
+  section{padding:52px 0;border-bottom:1px solid var(--line)}
+  .sec-h{display:flex;align-items:baseline;gap:12px;margin:0 0 10px}
+  .sec-h h2{font-size:26px;margin:0}
+  .sec-h i{font-style:normal;color:var(--brand);font-size:13px;letter-spacing:1px}
+  .sec-sub{color:var(--muted);margin:0 0 26px;max-width:760px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px}
+  .card h3{margin:0 0 8px;font-size:16px}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+  .tag{color:var(--brand);font-size:12px;letter-spacing:1px}
+  /* flow */
+  .flow{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+  .step{background:var(--bg2);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13.5px;color:var(--ink)}
+  .step b{color:var(--brand);margin-right:8px}
+  .arrow{color:var(--muted);display:flex;align-items:center;padding:0 2px}
+  /* stats */
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .stat{background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center}
+  .stat b{display:block;font-size:28px;color:var(--brand)}
+  .stat span{font-size:12px;color:var(--muted)}
+  /* shots */
+  .shots{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:26px}
+  .shots img{width:100%;border-radius:12px;border:1px solid var(--line);display:block}
+  /* limits */
+  ul.limits{color:var(--muted);font-size:14.5px;padding-left:20px;margin:0}
+  ul.limits li{margin-bottom:6px}
+  /* cta */
+  .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:8px}
+  .btn{border-radius:11px;padding:12px 20px;font-weight:600;font-size:14px;border:1px solid var(--line)}
+  .btn.p{background:linear-gradient(90deg,#22d3ee,#6366f1);color:#04121a;border:0}
+  .btn.g{color:var(--ink);background:var(--card)}
+  footer{padding:34px 0 54px;color:var(--muted);font-size:13px;text-align:center}
+  @media (max-width:760px){
+    h1{font-size:38px}
+    .grid2,.grid3,.stats,.shots{grid-template-columns:1fr}
+    .navlinks{display:none}
+  }
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <div class="brand">Story<span>Light</span>3D</div>
+    <div class="navlinks">
+      <a href="#story">叙事</a>
+      <a href="#loop">闭环</a>
+      <a href="#proof">证据</a>
+      <a href="#limits">边界</a>
+      <a href="https://storylight3d-demo.app.workbuddy.host/?sharecode=XMGNJCAINZ" target="_blank" rel="noopener">在线体验 ↗</a>
+    </div>
+  </div>
+</nav>
+
+<header>
+  <div class="wrap hero">
+    <div class="kicker">AHOLO 3D 黑客松 · 单人项目</div>
+    <h1>写作即造物，<em>故事即世界</em></h1>
+    <p class="lede">在故事里写 <code>[[名称:类型:描述]]</code>，文字就会变成可旋转、可缩放、可点击聚焦的 3D 场景。3D 生成不是另一个软件，而是写作的副产品。</p>
+    <div class="meta">
+      <span>Powered by Aholo Lux3D</span><span>Three.js · 零构建静态站</span><span>10 个真实 GLB 资产</span><span>已开源</span>
+    </div>
+    <div class="video">
+      <video controls playsinline preload="metadata" poster="assets/shot-sprite.png">
+        <source src="assets/StoryLight3D-loop.mp4" type="video/mp4" />
+      </video>
+    </div>
+  </div>
+</header>
+
+<section id="story">
+  <div class="wrap">
+    <div class="sec-h"><i>01</i><h2>问题不在于没有 3D 工具</h2></div>
+    <p class="sec-sub">而在于入口放错了位置：用户不是想学建模，是想让故事被看见。</p>
+    <div class="grid2">
+      <div class="card">
+        <div class="tag">卡点</div>
+        <h3>想造物的人，先被迫成为 3D 从业者</h3>
+        <p>写作者脑子里有画面，但要把它变成 3D，得先过建模、UV、材质、灯光、渲染。现有 AI 3D 工具还要求"上传图 / 进另一个界面写 prompt"，创作被迫离开叙事现场。</p>
+      </div>
+      <div class="card">
+        <div class="tag">洞察</div>
+        <h3>3D 的价值不在模型，在"叙事被看见"</h3>
+        <p>所以产品形态不该是"3D 编辑器 + 生成按钮"，而应是写作界面 + 一层极轻的标记。像 Markdown 之于排版：多写几个符号，换结构化能力，不必打开排版软件。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="loop">
+  <div class="wrap">
+    <div class="sec-h"><i>02</i><h2>一条完整的体验闭环</h2></div>
+    <p class="sec-sub">每一步都让用户"看得见进展"，而不是点完按钮等一个黑盒。</p>
+    <div class="flow">
+      <div class="step"><b>1</b>写故事 · 内联标记</div><div class="arrow">→</div>
+      <div class="step"><b>2</b>解析实体清单</div><div class="arrow">→</div>
+      <div class="step"><b>3</b>Lux3D 文生 3D</div><div class="arrow">→</div>
+      <div class="step"><b>4</b>真实尺寸装配</div><div class="arrow">→</div>
+      <div class="step"><b>5</b>旋转 / 缩放 / 聚焦</div><div class="arrow">→</div>
+      <div class="step"><b>6</b>链接分享</div>
+    </div>
+    <div class="shots">
+      <img src="assets/shot-sprite.png" alt="精灵森林：4 个真实资产的 3D 场景" loading="lazy" />
+      <img src="assets/shot-mech.png" alt="轨道机甲：同一引擎的第二个故事" loading="lazy" />
+      <img src="assets/shot-tea.png" alt="云雾茶舍：同一引擎的第三个故事" loading="lazy" />
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-h"><i>03</i><h2>三个关键取舍</h2></div>
+    <p class="sec-sub">产品判断体现在"放弃什么"，不是"加了什么"。</p>
+    <div class="grid3">
+      <div class="card">
+        <div class="tag">取舍 01</div>
+        <h3>内联 DSL，不做表单编辑器</h3>
+        <p>表格化会退化成 3D 工具、打断写作流。代价：要学 1 条语法，复杂空间关系表达不了。</p>
+      </div>
+      <div class="card">
+        <div class="tag">取舍 02</div>
+        <h3>预生成优先 + 三档兜底</h3>
+        <p>现场演示不能等每个资产约 5 分钟。预生成 GLB → 实时生成 → 占位几何体，永不白屏。代价：新增实体要重跑脚本。</p>
+      </div>
+      <div class="card">
+        <div class="tag">取舍 03</div>
+        <h3>纯前端零后端</h3>
+        <p>部署成本≈0、故事不上传服务器、打开即用。代价：无持久化、无协作、刷新即丢。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="proof">
+  <div class="wrap">
+    <div class="sec-h"><i>04</i><h2>可核验的证据</h2></div>
+    <p class="sec-sub">没有用户量、留存、增长数据——因为没做过用户测试，就不写。</p>
+    <div class="stats">
+      <div class="stat"><b>10</b><span>真实 GLB 资产</span></div>
+      <div class="stat"><b>3</b><span>示例故事</span></div>
+      <div class="stat"><b>4</b><span>实体类型</span></div>
+      <div class="stat"><b>47s</b><span>真实运行闭环视频</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="limits">
+  <div class="wrap">
+    <div class="sec-h"><i>05</i><h2>边界与诚实说明</h2></div>
+    <ul class="limits">
+      <li>资产观感受 G1-Turbo 与 prompt 限制；早期纯材质描述偏暗，已改用带色相词的 prompt 重生成。</li>
+      <li>字幕为近似逐词对齐（edge-tts 无 WordBoundary 时间轴）。</li>
+      <li>DSL 表达力有限：无层级、无相对位置、无动画、无材质参数。</li>
+      <li>无账号 / 无持久化 / 无多人协作；移动端为单列布局。</li>
+    </ul>
+  </div>
+</section>
+
+<section style="border-bottom:0">
+  <div class="wrap">
+    <div class="sec-h"><i>06</i><h2>去看真实的东西</h2></div>
+    <div class="cta">
+      <a class="btn p" href="https://storylight3d-demo.app.workbuddy.host/?sharecode=XMGNJCAINZ" target="_blank" rel="noopener">打开在线 Demo</a>
+      <a class="btn g" href="https://github.com/jian935/storylight3d" target="_blank" rel="noopener">GitHub 源码</a>
+      <a class="btn g" href="../docs/portfolio/StoryLight3D-产品叙事.md">完整产品叙事</a>
+      <a class="btn g" href="../deliverables/video/StoryLight3D-闭环演示.mp4">下载闭环视频</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  StoryLight3D · 作者：绝望的土豆泥 · MIT License · Powered by Aholo Lux3D
+</footer>
+</body>
+</html>

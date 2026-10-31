@@ -14,6 +14,17 @@
 调用 **Aholo Lux3D** 文生 3D 生成真实 GLB 模型（带 PBR 材质），再用 **Three.js** 组装成一个
 可以拖拽旋转、滚轮缩放、点击聚焦的交互场景。**读者不是在看截图，而是走进了你写的世界。**
 
+## 作品集包装（旗舰版材料）
+
+- **产品叙事** → [`docs/portfolio/StoryLight3D-产品叙事.md`](docs/portfolio/StoryLight3D-产品叙事.md)
+  问题 / 洞察 / 7 条关键取舍（放弃什么、为什么、代价）/ 可核验证据 / 差异化 / 边界 / 下一步 / 面试问答。
+- **闭环演示视频** → [`deliverables/video/StoryLight3D-闭环演示.mp4`](deliverables/video/StoryLight3D-闭环演示.mp4)
+  47 秒、1280×720、30fps，**真实运行画面**（写故事 → 生成 → 3D → 交互 → 切换 → 收尾）+ 中文旁白 + 逐词字幕。
+- **视频脚本与制作说明** → [`docs/video/闭环视频脚本.md`](docs/video/闭环视频脚本.md)
+  分镜表、复现命令、踩坑记录（软件渲染 3fps / image2 起始偏移 / PNG 伪装 jpg 丢帧）。
+- **作品集落地页** → [`portfolio/index.html`](portfolio/index.html)
+  一页看完：标语 + 闭环视频 + 问题/洞察 + 三个取舍 + 数字 + 边界 + 入口，可直接发给面试官。
+
 ## 核心特性
 
 - **零门槛标记语法**：`[[小精灵:character:...]]` —— 名称 / 类型 / 描述三段，类型支持 `character / creature / prop / scene`
@@ -58,9 +69,13 @@ web/                      纯前端静态站
   vendor/                 本地化的 three.js 及 addons（去 CDN）
   assets/generated/       预生成的 10 个 GLB + manifest.json（体积大，已 gitignore）
 scripts/                  资产生成 / manifest / 截图 / 视频 / 校验脚本
+  record_loop.mjs         录制真实运行画面（CDP screencast，D3D11 硬件渲染）
+  build_loop_video.py     闭环视频合成（edge-tts 配音 + 真实帧重采样 + ASS 字幕）
 report/                   12 页项目报告书（.slide 源文件 + .pptx）
-deliverables/video/       演示视频（中文配音 + 逐字字幕）
+deliverables/video/       演示视频（旧版截图幻灯片 + 新版闭环演示）
 docs/                     框架方案 / pitch / 交付计划
+  portfolio/              旗舰作品集叙事
+  video/                  闭环视频脚本与制作说明
 ```
 
 ## 资产重建（可选）

@@ -38,3 +38,9 @@ scripts/shoot_one.mjs
 # Python
 __pycache__/
 *.pyc
+
+# 闭环视频录制中间产物（可重跑 scripts/record_loop.mjs 重建）
+deliverables/video/loop/frames/
+deliverables/video/loop/seq/
+deliverables/video/loop/audio/
+deliverables/video/loop/silent.mp4

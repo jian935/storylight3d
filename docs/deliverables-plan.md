@@ -39,11 +39,20 @@
 
 ## 四、状态勾选
 
-- [ ] 10 个真实 GLB 全部下载
-- [ ] manifest.json 生成
-- [ ] 网页本地 `python -m http.server` 跑通（真实资产加载）
-- [ ] 6 张截图采集
-- [ ] 报告 PPT 生成（workbuddy-pptx）
-- [ ] 演示视频录制 + 配音字幕
-- [ ] WorkBuddy 站点发布
-- [ ] 小红书 + B站发布
+- [x] 10 个真实 GLB 全部下载
+- [x] manifest.json 生成
+- [x] 网页本地 `python -m http.server` 跑通（真实资产加载）
+- [x] 6 张截图采集
+- [x] 报告 PPT 生成（workbuddy-pptx）
+- [x] 演示视频录制 + 配音字幕
+- [x] WorkBuddy 站点发布
+- [ ] 小红书 + B站发布（套图与文案已备，发布需本人账号）
+
+## 五、旗舰包装（本轮新增）
+
+- [x] **产品叙事**：`docs/portfolio/StoryLight3D-产品叙事.md`
+      问题/洞察/7 条取舍/证据/差异化/边界/下一步/面试问答。
+- [x] **闭环演示视频**：`deliverables/video/StoryLight3D-闭环演示.mp4`
+      47.4s / 1280×720 / 30fps，真实运行画面（CDP screencast）+ edge-tts 旁白 + 逐词字幕。
+- [x] **视频脚本与制作说明**：`docs/video/闭环视频脚本.md`（分镜表 + 复现命令 + 踩坑）。
+- [x] 录制/合成脚本：`scripts/record_loop.mjs`、`scripts/build_loop_video.py`（可复现）。

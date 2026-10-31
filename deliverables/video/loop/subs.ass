@@ -1,0 +1,16 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 1280
+PlayResY: 720
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Subs,Microsoft YaHei,38,&H00FCABF0,&H00FFFFFF,&H00000000,&H96000000,0,0,0,0,100,100,1,0,3,2,2,2,70,70,46,1
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:02.40,0:00:07.46,Subs,,0,0,0,,{\k21}如{\k21}果{\k21}写{\k21}故{\k21}事{\k21}的{\k42}人，{\k21}能{\k21}亲{\k21}手{\k21}造{\k21}出{\k21}故{\k21}事{\k21}里{\k21}的{\k21}世{\k42}界，{\k21}会{\k21}怎{\k42}样？
+Dialogue: 0,0:00:07.91,0:00:14.29,Subs,,0,0,0,,{\k224}StoryLight3D，{\k17}在{\k17}故{\k17}事{\k17}里{\k17}写{\k17}下{\k17}一{\k17}句{\k17}标{\k34}记，{\k17}就{\k17}能{\k17}把{\k17}它{\k17}变{\k17}成{\k17}真{\k17}实{\k34}的 {\k52}3D。
+Dialogue: 0,0:00:14.74,0:00:22.90,Subs,,0,0,0,,{\k21}换{\k21}一{\k21}个{\k21}故{\k42}事，{\k21}点{\k21}一{\k21}下{\k21}生{\k42}成。{\k21}系{\k21}统{\k21}解{\k21}析{\k21}出{\k21}实{\k42}体，{\k21}逐{\k21}个{\k21}载{\k42}入 {\k126}Lux3D {\k21}生{\k21}成{\k21}的{\k21}真{\k21}实{\k21}模{\k42}型。
+Dialogue: 0,0:00:23.35,0:00:30.19,Subs,,0,0,0,,{\k24}拖{\k24}拽{\k24}旋{\k47}转，{\k24}滚{\k24}轮{\k24}缩{\k47}放。{\k24}每{\k24}个{\k24}模{\k24}型{\k24}都{\k24}有{\k24}材{\k24}质{\k24}和{\k24}光{\k47}影，{\k24}不{\k24}是{\k24}占{\k24}位{\k24}方{\k47}块。
+Dialogue: 0,0:00:30.64,0:00:35.70,Subs,,0,0,0,,{\k22}点{\k22}一{\k22}下{\k22}左{\k22}侧{\k22}的{\k22}实{\k44}体，{\k22}镜{\k22}头{\k22}自{\k22}动{\k22}聚{\k44}焦，{\k22}像{\k22}走{\k22}进{\k22}故{\k22}事{\k44}里。
+Dialogue: 0,0:00:36.15,0:00:42.29,Subs,,0,0,0,,{\k23}三{\k23}个{\k23}示{\k23}例{\k23}故{\k45}事，{\k23}同{\k23}一{\k23}套{\k23}引{\k45}擎；{\k23}写{\k23}完{\k23}就{\k23}能{\k23}发{\k23}布{\k23}分{\k45}享，{\k23}在{\k23}线{\k23}打{\k45}开。
+Dialogue: 0,0:00:42.74,0:00:47.37,Subs,,0,0,0,,{\k223}StoryLight3D，{\k17}期{\k17}待{\k17}看{\k17}到{\k17}你{\k17}的{\k17}故{\k34}事，{\k17}长{\k17}出{\k17}形{\k34}状。
