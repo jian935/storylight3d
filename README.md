@@ -25,6 +25,8 @@
 - **作品集落地页** → [`portfolio/index.html`](portfolio/index.html)
   **单文件自包含**（视频、截图全部内嵌为 data URI，约 2.3MB），不依赖同目录资源，可直接单独发给面试官或上传到任意静态托管。
   修改版式请编辑 [`portfolio/source.html`](portfolio/source.html)，然后跑 `python scripts/build_portfolio.py` 重新生成。
+- **提交材料清单（Aholo 黑客松）** → [`docs/submission-pack.md`](docs/submission-pack.md)
+  表单逐项填什么、附件路径与规格、评审维度对照、提交前自检、常见坑与换材料顺序。
 
 ## 核心特性
 
