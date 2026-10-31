@@ -23,7 +23,8 @@
 - **视频脚本与制作说明** → [`docs/video/闭环视频脚本.md`](docs/video/闭环视频脚本.md)
   分镜表、复现命令、踩坑记录（软件渲染 3fps / image2 起始偏移 / PNG 伪装 jpg 丢帧）。
 - **作品集落地页** → [`portfolio/index.html`](portfolio/index.html)
-  一页看完：标语 + 闭环视频 + 问题/洞察 + 三个取舍 + 数字 + 边界 + 入口，可直接发给面试官。
+  **单文件自包含**（视频、截图全部内嵌为 data URI，约 2.3MB），不依赖同目录资源，可直接单独发给面试官或上传到任意静态托管。
+  修改版式请编辑 [`portfolio/source.html`](portfolio/source.html)，然后跑 `python scripts/build_portfolio.py` 重新生成。
 
 ## 核心特性
 
@@ -71,6 +72,7 @@ web/                      纯前端静态站
 scripts/                  资产生成 / manifest / 截图 / 视频 / 校验脚本
   record_loop.mjs         录制真实运行画面（CDP screencast，D3D11 硬件渲染）
   build_loop_video.py     闭环视频合成（edge-tts 配音 + 真实帧重采样 + ASS 字幕）
+  build_portfolio.py      把 portfolio/source.html 构建成单文件自包含落地页
 report/                   12 页项目报告书（.slide 源文件 + .pptx）
 deliverables/video/       演示视频（旧版截图幻灯片 + 新版闭环演示）
 docs/                     框架方案 / pitch / 交付计划
