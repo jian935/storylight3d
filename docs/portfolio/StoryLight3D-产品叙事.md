@@ -1,7 +1,7 @@
 # StoryLight3D · 旗舰产品叙事
 
 > 作品集版 · 面向 AI 产品经理（Agent / 多模态方向）
-> 作者：绝望的土豆泥 ｜ 单人项目 ｜ Aholo 3D 黑客松参赛作品
+> 作者：jian935 ｜ 单人项目 ｜ Aholo 3D 黑客松参赛作品
 > 在线体验：https://storylight3d-demo.app.workbuddy.host/?sharecode=XMGNJCAINZ
 > 开源仓库：https://github.com/jian935/storylight3d
 

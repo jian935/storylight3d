@@ -1,7 +1,7 @@
 # StoryLight3D — 写作即造物
 
 > 在故事里用 `[[名称:类型:描述]]` 标记实体，自动把文字变成可旋转、可缩放、可聚焦的 3D 场景。
-> Aholo 3D 黑客松参赛作品 · 单人项目 · 作者：绝望的土豆泥
+> Aholo 3D 黑客松参赛作品 · 单人项目 · 作者：jian935
 
 🔗 **在线演示**：https://storylight3d-demo.app.workbuddy.host/?sharecode=XMGNJCAINZ
 （链接需带 `sharecode` 参数才能访问，直接打开根域名会被平台保护机制拦截）
@@ -119,4 +119,4 @@ node scripts/build_manifest.mjs
 
 ## 许可证
 
-MIT © 2026 绝望的土豆泥 · 详见 [LICENSE](LICENSE)
+MIT © 2026 jian935 · 详见 [LICENSE](LICENSE)

@@ -9,7 +9,7 @@
       <Text style={{ fontSize: 15, color: '#E2E8F0', marginTop: 8 }}>https://storylight3d-demo.app.workbuddy.host</Text>
       <Text style={{ fontSize: 15, color: '#E2E8F0', marginTop: 2 }}>/?sharecode=XMGNJCAINZ</Text>
     </Box>
-    <Text style={{ fontSize: 15, color: '#94A3B8', marginTop: 6 }}>单人作品 · 作者：绝望的土豆泥</Text>
+    <Text style={{ fontSize: 15, color: '#94A3B8', marginTop: 6 }}>单人作品 · 作者：jian935</Text>
   </Box>
   <Box style={{ width: 520, height: 720, position: 'relative', background: '#0a0e15' }}>
     <Image src="assets/cover-tea.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />

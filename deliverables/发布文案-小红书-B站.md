@@ -3,7 +3,7 @@
 > 权威链接（勿改）：
 > - GitHub：https://github.com/jian935/storylight3d
 > - Demo：https://storylight3d-demo.app.workbuddy.host/?sharecode=XMGNJCAINZ
-> - 作者：绝望的土豆泥
+> - 作者：jian935
 > - 视频：deliverables/video/StoryLight3D-演示视频.mp4（1分56秒）
 
 ---
