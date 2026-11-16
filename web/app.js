@@ -162,8 +162,24 @@ function makePlaceholder(type) {
   }
   if (s.shape !== 'platform') mesh.position.y = 1.0;
   group.add(mesh);
-  group.userData.height = s.shape === 'platform' ? 0.4 : 2.0;
-  group.userData.footprint = s.shape === 'platform' ? 4.6 : 1.6;
+
+  // 占位几何体也按目标尺寸归一化：否则槽位是按 TARGET_SIZE 算的，占位模型却可能大出一倍，
+  // 直接冲出画面（场景占位是半径 2.4 的圆盘，比真实场景模型宽得多）。
+  group.updateMatrixWorld(true);
+  const rawBox = new THREE.Box3().setFromObject(group);
+  const rawSize = rawBox.getSize(new THREE.Vector3());
+  const maxDim = Math.max(rawSize.x, rawSize.y, rawSize.z) || 1;
+  const k = (TARGET_SIZE[type] || 2.2) / maxDim;
+  if (k > 0 && Number.isFinite(k)) group.scale.setScalar(k);
+
+  group.updateMatrixWorld(true);
+  const box = new THREE.Box3().setFromObject(group);
+  const size = box.getSize(new THREE.Vector3());
+  // 让底面贴地（group.position 之后会被槽位覆盖，所以只能挪内部几何）
+  group.children.forEach((c) => { c.position.y -= box.min.y; });
+
+  group.userData.height = Math.max(0.4, size.y);
+  group.userData.footprint = Math.max(0.8, Math.max(size.x, size.z));
   return group;
 }
 
