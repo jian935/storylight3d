@@ -230,28 +230,14 @@ async function loadGLB(url, type, onProgress) {
   return wrapper;
 }
 
-// ---------- 布局：按各自真实尺寸累加成一排，轻微前后错位增强立体感 ----------
-function layout(entities) {
-  const widths = entities.map((e) => e.group?.userData?.footprint || 2.2);
-  const gap = 0.55;
-  const total = widths.reduce((a, b) => a + b, 0) + gap * (entities.length - 1);
-  let cursor = -total / 2;
-  entities.forEach((e, i) => {
-    const w = widths[i];
-    // 交替错开一点 z，避免完全平铺的呆板感，但不影响视觉大小
-    const z = i % 2 === 0 ? -0.35 : 0.35;
-    e.pos = new THREE.Vector3(cursor + w / 2, 0, z);
-    cursor += w + gap;
-  });
-}
-
 // ---------- 自动取景：按布局已知量算，不依赖可能含离群几何的包围盒 ----------
-function frameAll(instant = false) {
-  if (!state.entities.length) return;
-  const maxFoot = Math.max(2.0, ...state.entities.map((e) => e.group?.userData?.footprint || 2.0));
-  const maxH = Math.max(2.0, ...state.entities.map((e) => e.group?.userData?.height || 2.0));
-  const xs = state.entities.map((e) => e.pos?.x || 0);
-  const zs = state.entities.map((e) => e.pos?.z || 0);
+// list 可传入「尚未加载」的槽位占位对象，让镜头一次框住全部 planned 位置，后续逐个填入不跳镜头
+function frameAll(instant = false, list = state.entities) {
+  if (!list.length) return;
+  const maxFoot = Math.max(2.0, ...list.map((e) => e.group?.userData?.footprint || 2.0));
+  const maxH = Math.max(2.0, ...list.map((e) => e.group?.userData?.height || 2.0));
+  const xs = list.map((e) => e.pos?.x || 0);
+  const zs = list.map((e) => e.pos?.z || 0);
   const spanX = Math.max(...xs) - Math.min(...xs) + maxFoot;
   const spanZ = Math.max(...zs) - Math.min(...zs) + maxFoot;
   const midX = (Math.max(...xs) + Math.min(...xs)) / 2;
@@ -273,6 +259,22 @@ function frameAll(instant = false) {
   } else {
     state.focus = { cam: camPos, tgt };
   }
+}
+
+// ---------- 预排布：用「目标尺寸」算槽位，不依赖模型是否已下载 ----------
+// 这样第一个模型落地时就知道自己的最终位置，后续进来不用重新排版、镜头也不跳
+function planSlots(parsed) {
+  const widths = parsed.map((e) => TARGET_SIZE[e.type] || 2.2);
+  const gap = 0.55;
+  const total = widths.reduce((a, b) => a + b, 0) + gap * (parsed.length - 1);
+  let cursor = -total / 2;
+  return parsed.map((e, i) => {
+    const w = widths[i];
+    const z = i % 2 === 0 ? -0.35 : 0.35;
+    const p = new THREE.Vector3(cursor + w / 2, 0, z);
+    cursor += w + gap;
+    return p;
+  });
 }
 
 // ---------- 进度 ----------
@@ -320,8 +322,23 @@ async function generate() {
   };
   setProgress(0);
 
-  // 并发加载（原来是串行，3×20MB 要走很久）
-  const results = await Promise.all(parsed.map(async (ent, i) => {
+  // 首屏只等第一个实体，其余后台串进来。
+  // 改前：4 个实体 Promise.all 一起等，精灵森林要下满 91.6 MB 才出画面；
+  // 改后：第一屏只要 21.2 MB，弱网/手机也能先看到东西，剩下的边看边进。
+  const slots = planSlots(parsed);
+  const plannedView = parsed.map((ent, i) => ({
+    pos: slots[i],
+    group: {
+      userData: {
+        footprint: TARGET_SIZE[ent.type] || 2.2,
+        height: TARGET_SIZE[ent.type] || 2.2,
+      },
+    },
+  }));
+  // 镜头一次框住「全部槽位」，后面逐个填入时不再移动镜头，避免跳帧
+  frameAll(true, plannedView);
+
+  async function loadOne(ent, i) {
     const { span } = rows[i];
     let group;
     try {
@@ -363,35 +380,43 @@ async function generate() {
       ent.source = 'fallback';
       log(`✗ ${ent.name} 生成失败，回退占位：${err.message}`, 'warn');
     }
-    return { ent, group };
-  }));
+    return group;
+  }
 
-  setProgress(null);
-
-  // 拿到真实尺寸后再排布，最后自动取景
-  const items = results.map(({ ent, group }) => { ent.group = group; return ent; });
-  layout(items);
-  items.forEach((ent) => {
-    const group = ent.group;
+  function attach(ent, i, group) {
+    ent.group = group;
+    ent.pos = slots[i];
     group.position.copy(ent.pos);
     group.add(makeLabel(ent.name, group.userData.height || 2.4));
     group.userData.entity = ent;
     state.scene.add(group);
     state.entities.push(ent);
-  });
-  rows.forEach(({ ent, li }) => { li.onclick = () => focusOn(ent); });
+    rows[i].li.onclick = () => focusOn(ent);
+  }
 
+  // ① 第一个实体：等到它就能看
+  const firstGroup = await loadOne(parsed[0], 0);
+  attach(parsed[0], 0, firstGroup);
+  statusEl.textContent = parsed.length > 1
+    ? `已生成 1 / ${parsed.length} 个实体（其余后台加载）`
+    : `已生成 1 个实体`;
+  showAssetCard(parsed[0].name, parsed[0].type);
+  if (parsed[0].source !== 'manifest' && parsed[0].source !== 'live') {
+    log('该实体是新写的，没有历史资产（走兜底）；点左侧其他条目可看已有资产的生成档案。');
+  }
+  if (parsed.length > 1) log(`首屏先展示「${parsed[0].name}」，其余 ${parsed.length - 1} 个后台继续加载…`);
+
+  // ② 其余实体：后台并行补齐，进来一个放一个
+  await Promise.all(parsed.slice(1).map(async (ent, k) => {
+    const i = k + 1;
+    const group = await loadOne(ent, i);
+    attach(ent, i, group);
+    statusEl.textContent = `已生成 ${state.entities.length} / ${parsed.length} 个实体`;
+  }));
+
+  setProgress(null);
   statusEl.textContent = `已生成 ${state.entities.length} 个实体`;
   log('场景生成完成，拖动旋转、滚轮缩放，点击左侧条目聚焦。', 'ok');
-  frameAll(true);
-  // 自动展示第一个实体的档案：与左侧列表顺序一致，避免「卡片显示的和你刚写的不是同一个」
-  const showcase = state.entities[0];
-  if (showcase) {
-    showAssetCard(showcase.name, showcase.type);
-    if (showcase.source !== 'manifest' && showcase.source !== 'live') {
-      log('该实体是新写的，没有历史资产（走兜底）；点左侧其他条目可看已有资产的生成档案。');
-    }
-  }
 }
 
 // ---------- 聚焦 ----------
