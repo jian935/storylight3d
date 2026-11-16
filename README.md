@@ -37,6 +37,7 @@
 - **自动取景 + 环境光照**：按模型真实尺寸分层布局，PMREM 环境贴图让金属/水晶材质不发黑
 - **可交互**：OrbitControls 旋转缩放、点击实体聚焦、下拉切换故事、实时加载进度
 - **移动端适配**：窄屏自动切单列布局
+- **生成档案 / 台账**：点任意模型或左侧条目，即可看到该资产的 Lux3D 任务号、原始 prompt、文件体积，以及场景里用的是哪一版；顶栏「📋 生成台账」列出全部 10 条记录，可对着报告书第 9 页逐条核对
 
 ## 三个示例故事
 
@@ -75,7 +76,7 @@ scripts/                  资产生成 / manifest / 截图 / 视频 / 校验脚�
   record_loop.mjs         录制真实运行画面（CDP screencast，D3D11 硬件渲染）
   build_loop_video.py     闭环视频合成（edge-tts 配音 + 真实帧重采样 + ASS 字幕）
   build_portfolio.py      把 portfolio/source.html 构建成单文件自包含落地页
-report/                   12 页项目报告书（.slide 源文件 + .pptx）
+report/                   13 页项目报告书（.slide 源文件 + .pptx）
 deliverables/video/       演示视频（旧版截图幻灯片 + 新版闭环演示）
 docs/                     框架方案 / pitch / 交付计划
   portfolio/              旗舰作品集叙事
