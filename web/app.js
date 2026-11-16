@@ -14,6 +14,7 @@ const state = {
   manifest: null,        // 预生成资产清单（本机脚本产出）
   ledger: null,          // Lux3D 生成台账（scripts/asset_tasks.json 派生）
   ledgerByName: new Map(),
+  userInteracted: false, // 用户是否已经拖过视角（拖过就不再自动改镜头，免得抢控制权）
 };
 
 // 按类型定目标尺寸：场景要够大，道具要收小，否则角色和房子一样高
@@ -106,7 +107,7 @@ function initThree() {
   state.scene = scene; state.camera = camera; state.renderer = renderer; state.controls = controls;
 
   window.addEventListener('resize', onResize);
-  renderer.domElement.addEventListener('pointerdown', onPick);
+  renderer.domElement.addEventListener('pointerdown', (ev) => { state.userInteracted = true; onPick(ev); });
   animate();
 }
 
@@ -312,6 +313,7 @@ async function generate() {
   overlayEl.style.display = 'none';
   listEl.innerHTML = '';
   cardEl.classList.add('hidden');   // 重新生成时先收起旧档案，避免显示上一个故事的实体
+  state.userInteracted = false;     // 新一轮生成，允许最后自动收镜
   state.entities.forEach((e) => state.scene.remove(e.group));
   state.entities = [];
 
@@ -433,6 +435,9 @@ async function generate() {
   setProgress(null);
   statusEl.textContent = `已生成 ${state.entities.length} 个实体`;
   log('场景生成完成，拖动旋转、滚轮缩放，点击左侧条目聚焦。', 'ok');
+  // 全部到齐后用「真实包围盒」再收一次镜：模型常比 TARGET_SIZE 更宽/更高，
+  // 只按预测尺寸取景会把最右/最上那个切掉。用户已经拖过视角就不动，避免抢控制权。
+  if (!state.userInteracted) frameAll(true, state.entities);
 }
 
 // ---------- 聚焦 ----------
