@@ -23,6 +23,7 @@
       <span class="subtitle">故事即 3D 场景 · Powered by Aholo Lux3D</span>
     </div>
     <div class="actions">
+      <button id="btn-ledger" class="ghost">📋 生成台账</button>
       <button id="btn-config" class="ghost">⚙ 配置 Lux3D</button>
       <select id="story-picker" class="ghost" title="选择示例故事">
         <option value="sprite">示例 · 精灵森林</option>
@@ -43,6 +44,7 @@
       </div>
       <h3>解析出的实体</h3>
       <ul id="entity-list" class="entity-list"><li class="empty">尚未生成</li></ul>
+      <section id="asset-card" class="asset-card hidden" aria-live="polite"></section>
     </section>
 
     <section class="panel right">
@@ -60,6 +62,17 @@
       <div id="log" class="log"></div>
     </section>
   </main>
+
+  <!-- Lux3D 生成台账（抽屉） -->
+  <aside id="ledger" class="drawer hidden" aria-label="Lux3D 生成台账">
+    <div class="drawer-head">
+      <h3>Lux3D 生成台账</h3>
+      <button id="ledger-close" class="ghost sm">关闭</button>
+    </div>
+    <div class="drawer-sub" id="ledger-sub"></div>
+    <div class="ledger-body" id="ledger-body"></div>
+    <div class="drawer-note" id="ledger-note"></div>
+  </aside>
 
   <!-- 配置弹窗 -->
   <div id="config-modal" class="modal hidden">

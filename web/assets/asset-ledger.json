@@ -1,0 +1,120 @@
+{
+  "title": "Lux3D 生成台账",
+  "engine": "Aholo Lux3D · text-to-3D",
+  "source": "scripts/asset_tasks.json",
+  "note": "任务号由 Lux3D task/create 接口返回；部分实体经过重生成，历史版本保留在 web/assets/generated/_backup/。",
+  "assets": [
+    {
+      "entity": "小精灵",
+      "slug": "fairy_sprite",
+      "type": "character",
+      "taskid": 4481962,
+      "status": "superseded",
+      "file": "fairy_sprite.glb",
+      "bytes": 22255052,
+      "prompt": "a small glowing fairy sprite with green wings, fantasy forest creature, cute"
+    },
+    {
+      "entity": "水晶树屋",
+      "slug": "crystal_treehouse",
+      "type": "scene",
+      "taskid": 4482154,
+      "status": "superseded",
+      "file": "crystal_treehouse.glb",
+      "bytes": 29359724,
+      "prompt": "a transparent crystal treehouse floating among clouds, inner walls softly glowing, fantasy scene, highly detailed"
+    },
+    {
+      "entity": "星光钥匙",
+      "slug": "starlight_key",
+      "type": "prop",
+      "taskid": 4482157,
+      "status": "superseded",
+      "file": "starlight_key.glb",
+      "bytes": 18901036,
+      "prompt": "an ancient silver key, key teeth formed of flowing starlight, magical glowing prop"
+    },
+    {
+      "entity": "镜像森林",
+      "slug": "mirror_forest",
+      "type": "scene",
+      "taskid": 4482161,
+      "status": "superseded",
+      "file": "mirror_forest.glb",
+      "bytes": 25485280,
+      "prompt": "a mysterious forest where trees are made of mirrors reflecting a starry sky, dreamlike scene"
+    },
+    {
+      "entity": "轨道车站",
+      "slug": "orbital_station",
+      "type": "scene",
+      "taskid": 4482164,
+      "status": "downloaded",
+      "file": "orbital_station.glb",
+      "bytes": 25261704,
+      "prompt": "an abandoned rusty space station with broken neon signs, sci-fi scene"
+    },
+    {
+      "entity": "拾荒机师",
+      "slug": "scavenger_pilot",
+      "type": "character",
+      "taskid": 4482166,
+      "status": "downloaded",
+      "file": "scavenger_pilot.glb",
+      "bytes": 21546756,
+      "prompt": "a young female mechanic pilot in orange repair suit, a hovering toolbox drone behind her, character"
+    },
+    {
+      "entity": "侦察机甲",
+      "slug": "recon_mech_wolf",
+      "type": "creature",
+      "taskid": 4482315,
+      "status": "downloaded",
+      "file": "recon_mech_wolf.glb",
+      "bytes": 24733516,
+      "prompt": "a four-legged mechanical wolf with glowing blue laser eyes, sci-fi creature"
+    },
+    {
+      "entity": "云雾茶舍",
+      "slug": "misty_tea_house",
+      "type": "scene",
+      "taskid": 4482316,
+      "status": "superseded",
+      "file": "misty_tea_house.glb",
+      "bytes": 25714916,
+      "prompt": "a wooden tea house beside a waterfall, surrounded by steaming mist, cozy scene"
+    },
+    {
+      "entity": "青瓷茶壶",
+      "slug": "celadon_teapot",
+      "type": "prop",
+      "taskid": 4482324,
+      "status": "downloaded",
+      "file": "celadon_teapot.glb",
+      "bytes": 17669828,
+      "prompt": "a celadon teapot with warm crackle-glaze surface, elegant prop"
+    },
+    {
+      "entity": "锦鲤纸鸢",
+      "slug": "koi_kite",
+      "type": "creature",
+      "taskid": 4482325,
+      "status": "downloaded",
+      "file": "koi_kite.glb",
+      "bytes": 19857792,
+      "prompt": "a red kite shaped like a swimming koi fish, traditional chinese creature"
+    }
+  ],
+  "summary": {
+    "records": 10,
+    "byType": {
+      "character": 2,
+      "scene": 4,
+      "prop": 2,
+      "creature": 2
+    },
+    "superseded": 5,
+    "inUse": 5,
+    "totalBytes": 230785604
+  }
+}

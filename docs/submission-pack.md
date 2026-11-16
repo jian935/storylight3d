@@ -42,7 +42,7 @@
 | 演示视频 | `deliverables/video/StoryLight3D-闭环演示.mp4` | 47.4s / 1280×720 / 30fps / 中文旁白 + 字幕 |
 | 在线演示链接 | https://storylight3d-demo.app.workbuddy.host/?sharecode=XMGNJCAINZ | **必须带 sharecode** |
 | 源码仓库 | https://github.com/jian935/storylight3d | 分支 `main`，先推完再填 |
-| 项目报告书 | `report/StoryLight3D-项目报告书/StoryLight3D-项目报告书-final.pptx` | 12 页；如需 PDF 另转 |
+| 项目报告书 | `report/StoryLight3D-项目报告书/StoryLight3D-项目报告书-final.pptx` | 13 页（新增「Lux3D 生成台账」页）；如需 PDF 另转 |
 | 小红书链接 | 发布后回填（话题 `#Aholo黑客松`） | 见 §5 素材 |
 
 ---
@@ -61,10 +61,10 @@
 
 | 维度（权重） | 我们拿什么证明 |
 |---|---|
-| **群核技术栈核心作用（30%）** | Lux3D 是唯一 3D 内容源：文本 → Lux3D 文生 3D → 资产进场景 → 报告书对比，全链路贯穿；10 个真实 GLB 可核验 |
+| **群核技术栈核心作用（30%）** | Lux3D 是唯一 3D 内容源：文本 → Lux3D 文生 3D → 资产进场景 → 报告书对比，全链路贯穿；10 个真实 GLB 可核验；报告书第 9 页列出 10 条 Lux3D 任务号台账 |
 | **作品有趣（25%）** | 写故事就能"看见"角色/场景立起来；47s 闭环视频真实演示写→生成→交互→切换 |
 | **创新性（20%）** | 写作 DSL + 叙事预览，区别于"上传图出模型"；标记内联进散文，不打断写作 |
-| **完成度（20%）** | 在线 Demo 可直接跑；三档兜底不白屏；移动端适配；12 页报告书；真实运行视频 |
+| **完成度（20%）** | 在线 Demo 可直接跑；三档兜底不白屏；移动端适配；13 页报告书；真实运行视频 |
 | **传播（5%）** | 小红书套图 9 张 + 发布文案（`deliverables/`），话题 `#Aholo黑客松` |
 
 ---
@@ -76,7 +76,7 @@
 | 闭环演示视频（主用） | `deliverables/video/StoryLight3D-闭环演示.mp4` | 47.4s / 1280×720 / 30fps / 7.6MB | 主演示视频 |
 | 网页压缩版视频 | `portfolio/assets/web.mp4` | 960 宽 / 1.5MB | 平台有体积限制时用 |
 | 旧版演示视频 | `deliverables/video/StoryLight3D-演示视频.mp4` | 3 分钟 / 截图幻灯片 | 备选，不推荐主用 |
-| 报告书 PPT | `report/StoryLight3D-项目报告书/StoryLight3D-项目报告书-final.pptx` | 12 页 | 作品说明 |
+| 报告书 PPT | `report/StoryLight3D-项目报告书/StoryLight3D-项目报告书-final.pptx` | 13 页 | 作品说明 |
 | 封面图 | `deliverables/封面-B站-16x9-标题版.jpg`、`封面-小红书-3x4-标题版.jpg` | 16:9 / 3:4 | 视频封面 |
 | 小红书套图 | `deliverables/xiaohongshu/01~09.jpg` | 9 张 | 传播 |
 | 发布文案 | `deliverables/发布文案-小红书-B站.md` | — | 直接复制 |

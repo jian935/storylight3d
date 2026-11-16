@@ -12,6 +12,8 @@ const state = {
   focus: null,           // 相机聚焦插值目标
   cfg: loadCfg(),
   manifest: null,        // 预生成资产清单（本机脚本产出）
+  ledger: null,          // Lux3D 生成台账（scripts/asset_tasks.json 派生）
+  ledgerByName: new Map(),
 };
 
 // 按类型定目标尺寸：场景要够大，道具要收小，否则角色和房子一样高
@@ -291,6 +293,7 @@ async function generate() {
   }
   overlayEl.style.display = 'none';
   listEl.innerHTML = '';
+  cardEl.classList.add('hidden');   // 重新生成时先收起旧档案，避免显示上一个故事的实体
   state.entities.forEach((e) => state.scene.remove(e.group));
   state.entities = [];
 
@@ -332,6 +335,7 @@ async function generate() {
         setRatio(i, 1);
         span.textContent = '✓ Lux3D';
         span.className = 'tag-state ok';
+        ent.source = 'manifest';
         log(`✓ ${ent.name} 载入预生成真实资产`, 'ok');
       } else if (configured) {
         span.textContent = '生成中…';
@@ -343,17 +347,20 @@ async function generate() {
         setRatio(i, 1);
         span.textContent = '✓ Lux3D';
         span.className = 'tag-state ok';
+        ent.source = 'live';
         log(`✓ ${ent.name} 由 Lux3D 实时生成`, 'ok');
       } else {
         group = makePlaceholder(ent.type);
         setRatio(i, 1);
         span.textContent = '占位';
+        ent.source = 'placeholder';
         log(`· ${ent.name} 使用占位模型（接入 Lux3D 后自动替换为真实资产）`);
       }
     } catch (err) {
       group = makePlaceholder(ent.type);
       setRatio(i, 1);
       span.textContent = '占位(失败)';
+      ent.source = 'fallback';
       log(`✗ ${ent.name} 生成失败，回退占位：${err.message}`, 'warn');
     }
     return { ent, group };
@@ -377,6 +384,14 @@ async function generate() {
   statusEl.textContent = `已生成 ${state.entities.length} 个实体`;
   log('场景生成完成，拖动旋转、滚轮缩放，点击左侧条目聚焦。', 'ok');
   frameAll(true);
+  // 自动展示第一个实体的档案：与左侧列表顺序一致，避免「卡片显示的和你刚写的不是同一个」
+  const showcase = state.entities[0];
+  if (showcase) {
+    showAssetCard(showcase.name, showcase.type);
+    if (showcase.source !== 'manifest' && showcase.source !== 'live') {
+      log('该实体是新写的，没有历史资产（走兜底）；点左侧其他条目可看已有资产的生成档案。');
+    }
+  }
 }
 
 // ---------- 聚焦 ----------
@@ -389,6 +404,8 @@ function focusOn(ent) {
     cam: new THREE.Vector3(p.x + d * 0.45, h * 0.8 + d * 0.45, p.z + d),
     tgt: new THREE.Vector3(p.x, h * 0.5, p.z),
   };
+  try { showAssetCard(ent.name, ent.type); }
+  catch (err) { log(`⚠ 档案渲染失败：${err.message}`, 'warn'); }
   log(`聚焦：${ent.name}`);
 }
 function onPick(ev) {
@@ -406,6 +423,168 @@ function onPick(ev) {
     if (o && o.userData.entity) focusOn(o.userData.entity);
   }
 }
+
+// ---------- Lux3D 生成台账 / 实体档案 ----------
+const TYPE_CN = { character: '角色', creature: '生物', prop: '道具', scene: '场景' };
+const SOURCE_CN = {
+  manifest: '预生成资产（本地 GLB）',
+  live: 'Lux3D 实时生成',
+  placeholder: '占位几何体（兜底）',
+  fallback: '生成失败 → 占位兜底',
+};
+const cardEl = $('asset-card');
+const ledgerEl = $('ledger');
+const ledgerBody = $('ledger-body');
+const ledgerSub = $('ledger-sub');
+const ledgerNote = $('ledger-note');
+
+function fmtMB(n) {
+  return n ? (n / 1048576).toFixed(1) + ' MB' : '—';
+}
+
+async function loadLedger() {
+  try {
+    const res = await fetch('assets/asset-ledger.json', { cache: 'no-store' });
+    if (!res.ok) throw new Error('HTTP ' + res.status);
+    state.ledger = await res.json();
+    state.ledgerByName = new Map(state.ledger.assets.map((a) => [a.entity, a]));
+    renderLedger();
+  } catch (err) {
+    log('· 未载入生成台账（' + err.message + '），实体档案将显示为「无历史记录」。', 'warn');
+  }
+}
+
+// 选中一个实体（或一条台账记录）时，在左栏显示它的生成档案
+function showAssetCard(name, type) {
+  const rec = state.ledgerByName?.get(name) || null;
+  const ent = state.entities.find((e) => e.name === name);
+  const typeCn = TYPE_CN[type || rec?.type] || (type || rec?.type) || '未知';
+  cardEl.innerHTML = '';
+
+  const head = document.createElement('div');
+  head.className = 'ac-head';
+  const nm = document.createElement('span');
+  nm.className = 'ac-name';
+  nm.textContent = name;
+  const tp = document.createElement('span');
+  tp.className = 'ac-type';
+  tp.textContent = typeCn;
+  head.append(nm, tp);
+  cardEl.append(head);
+
+  const addRow = (k, v, mono) => {
+    const row = document.createElement('div');
+    row.className = 'ac-row';
+    const kk = document.createElement('span');
+    kk.className = 'ac-k';
+    kk.textContent = k;
+    const vv = document.createElement('span');
+    vv.className = 'ac-v' + (mono ? ' mono' : '');
+    vv.textContent = v;
+    row.append(kk, vv);
+    cardEl.append(row);
+  };
+
+  if (rec) {
+    addRow('任务号', String(rec.taskid), true);
+    addRow('记录状态', rec.status === 'downloaded' ? '当前记录' : '已归档（该实体做过重生成）');
+    addRow('模型文件', rec.file + ' · ' + fmtMB(rec.bytes) + '（场景中正在使用）');
+
+    const pl = document.createElement('div');
+    pl.className = 'ac-k';
+    pl.textContent = 'Prompt';
+    const pv = document.createElement('div');
+    pv.className = 'ac-prompt';
+    pv.textContent = rec.prompt;
+    cardEl.append(pl, pv);
+  } else {
+    addRow('生成记录', '本次新写的实体，台账里没有历史资产');
+    const hint = document.createElement('div');
+    hint.className = 'ac-prompt';
+    hint.textContent =
+      '当前是占位几何体，不是 Lux3D 生成的模型：新实体要先经 Lux3D 生成才有真实资产；' +
+      '未配置密钥时用占位兜底，保证场景不白屏。';
+    cardEl.append(hint);
+  }
+
+  const foot = document.createElement('div');
+  foot.className = 'ac-foot';
+  const src = document.createElement('span');
+  src.className = 'ac-badge ' + (ent?.source === 'live' ? 'live' : ent?.source === 'manifest' ? 'inuse' : 'ph');
+  src.textContent = ent ? (SOURCE_CN[ent.source] || '来源未知') : '未在当前场景中';
+  const btn = document.createElement('button');
+  btn.className = 'ghost sm';
+  btn.textContent = '复制档案';
+  btn.onclick = () => {
+    const text = rec
+      ? `${name}（${typeCn}）\n任务号 ${rec.taskid}\nprompt: ${rec.prompt}\n文件 ${rec.file} ${fmtMB(rec.bytes)}`
+      : `${name}（${typeCn}）\n无历史生成记录`;
+    navigator.clipboard?.writeText(text).then(
+      () => { btn.textContent = '已复制'; setTimeout(() => (btn.textContent = '复制档案'), 1400); },
+      () => { btn.textContent = '复制失败'; },
+    );
+  };
+  foot.append(src, btn);
+  cardEl.append(foot);
+
+  cardEl.classList.remove('hidden');
+}
+
+function renderLedger() {
+  if (!state.ledger) return;
+  const s = state.ledger.summary;
+  const byType = Object.entries(s.byType)
+    .map(([k, v]) => (TYPE_CN[k] || k) + ' ' + v)
+    .join(' / ');
+  ledgerSub.textContent =
+    `${s.records} 条生成记录 ｜ ${byType} ｜ 其中 ${s.superseded} 条已重生成`;
+
+  const table = document.createElement('table');
+  const thead = document.createElement('thead');
+  thead.innerHTML = '<tr><th>实体</th><th>类型</th><th>Lux3D 任务号</th><th>记录状态</th></tr>';
+  const tbody = document.createElement('tbody');
+  state.ledger.assets.forEach((a) => {
+    const tr = document.createElement('tr');
+    tr.className = 'row';
+    const c1 = document.createElement('td');
+    c1.textContent = a.entity;
+    const c2 = document.createElement('td');
+    c2.textContent = TYPE_CN[a.type] || a.type;
+    const c3 = document.createElement('td');
+    c3.className = 'mono';
+    c3.textContent = String(a.taskid);
+    const c4 = document.createElement('td');
+    const st = document.createElement('span');
+    st.className = 'st ' + (a.status === 'downloaded' ? 'inuse' : 'old');
+    st.textContent = a.status === 'downloaded' ? '在用' : '已重生成';
+    c4.append(st);
+    tr.append(c1, c2, c3, c4);
+    tr.onclick = () => {
+      ledgerEl.classList.add('hidden');
+      const ent = state.entities.find((e) => e.name === a.entity);
+      if (ent) focusOn(ent);
+      else showAssetCard(a.entity, a.type);
+    };
+    tbody.append(tr);
+  });
+  table.append(thead, tbody);
+  ledgerBody.innerHTML = '';
+  ledgerBody.append(table);
+  ledgerNote.textContent = state.ledger.note;
+}
+
+$('btn-ledger').onclick = () => {
+  if (!state.ledger) {
+    log('台账尚未载入（assets/asset-ledger.json 不可读）。', 'warn');
+    return;
+  }
+  renderLedger();
+  ledgerEl.classList.remove('hidden');
+};
+$('ledger-close').onclick = () => ledgerEl.classList.add('hidden');
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') ledgerEl.classList.add('hidden');
+});
 
 // ---------- 动画循环 ----------
 function animate() {
@@ -451,6 +630,7 @@ $('cfg-save').addEventListener('click', () => {
 // ---------- 启动 ----------
 storyEl.value = DEMO_DEFAULT;
 initThree();
+loadLedger();
 loadManifest().then((m) => {
   state.manifest = m;
   if (m && m.assets) log(`已加载预生成资产清单（${Object.keys(m.assets).length} 个）。`, 'ok');
@@ -465,3 +645,5 @@ window.__sl3d = state;
 window.__THREE = THREE;
 window.__frame = frameAll;
 window.__generate = generate;
+window.__showAsset = showAssetCard;
+window.__openLedger = () => { renderLedger(); ledgerEl.classList.remove('hidden'); };
